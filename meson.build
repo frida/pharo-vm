@@ -51,7 +51,13 @@ vm_version = '12.0.0'
 conf = configuration_data()
 conf.set('VM_NAME', 'Pharo')
 conf.set('DEFAULT_IMAGE_NAME', 'Pharo.image')
-conf.set('OS_TYPE', is_windows ? 'Win32' : 'unix')
+os_type = 'unix'
+if is_windows
+  os_type = 'Win32'
+elif is_darwin
+  os_type = 'Mac OS'
+endif
+conf.set('OS_TYPE', os_type)
 conf.set('VM_TARGET', host_os_family)
 conf.set('VM_TARGET_CPU', host_machine.cpu_family())
 conf.set('VM_TARGET_OS', host_os_family)
