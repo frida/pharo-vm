@@ -7,7 +7,7 @@ static char __buildInfo[] = "DSAPlugin CryptographyPlugins-eem.14 uuid: 54292ff0
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

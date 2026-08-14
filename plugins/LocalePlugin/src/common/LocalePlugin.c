@@ -7,7 +7,7 @@ static char __buildInfo[] = "LocalePlugin VMMaker.oscog-eem.2495 uuid: fcbf4c90-
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

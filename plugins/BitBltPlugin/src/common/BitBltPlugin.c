@@ -7,7 +7,7 @@ static char __buildInfo[] = "BitBltSimulation VMMaker.oscog-eem.2493 uuid: d7437
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

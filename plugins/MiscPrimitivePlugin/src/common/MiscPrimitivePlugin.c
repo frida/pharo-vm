@@ -7,7 +7,7 @@ static char __buildInfo[] = "MiscPrimitivePlugin VMMaker.oscog-eem.2480 uuid: bb
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
