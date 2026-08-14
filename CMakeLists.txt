@@ -425,6 +425,7 @@ list(APPEND SUPPORT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/fileDialogCommon.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/stringUtilities.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/imageAccess.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/memoryImage.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/parameters/parameterVector.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/parameters/parameters.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/semaphores/platformSemaphore.c
