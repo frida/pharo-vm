@@ -371,3 +371,6 @@ healthchecksdb
 /stack64/generated
 
 **/.DS_Store
+
+# Slang output, written by tools/generate-sources.py
+/slang/

@@ -7,7 +7,7 @@ static char __buildInfo[] = "JPEGReaderPlugin VMMaker.oscog-eem.2480 uuid: bb3ff
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

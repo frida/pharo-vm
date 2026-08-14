@@ -9,7 +9,7 @@ static char __buildInfo[] = "UnixOSProcessPlugin VMConstruction-Plugins-OSProces
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 
 #include <math.h>
 #include <stdio.h>

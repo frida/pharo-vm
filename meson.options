@@ -1,0 +1,8 @@
+option('generated_dir', type: 'string', value: '',
+  description: 'A tree of Slang-generated interpreter and plugin sources to ' +
+               'build against, rather than generating one')
+option('flavour', type: 'combo', choices: ['CoInterpreter', 'StackVM'],
+  value: 'CoInterpreter', description: 'Which interpreter to build')
+option('static_plugins', type: 'array', value: [],
+  description: 'Plugins to link into the core rather than dlopen, by name, ' +
+               'or the single entry "all"')

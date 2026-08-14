@@ -7,7 +7,7 @@ static char __buildInfo[] = "SqueakSSLPlugin VMMaker.oscog-eem.2480 uuid: bb3ffd
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

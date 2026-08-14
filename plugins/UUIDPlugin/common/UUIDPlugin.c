@@ -1,4 +1,4 @@
-#include "config.h"
+#include "pharovmConfig.h"
 #include "sq.h"
 
 typedef char sqUUID[16];

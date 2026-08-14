@@ -7,7 +7,7 @@ static char __buildInfo[] = "LargeIntegersPlugin VMMaker.oscog-eem.2495 uuid: fc
 
 
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

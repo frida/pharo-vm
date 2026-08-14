@@ -15,7 +15,7 @@
 #ifndef __sqMemoryAccess_h
 #define __sqMemoryAccess_h
 
-#include "config.h"
+#include "pharovmConfig.h"
 #include "interp.h"
 #include "stdint.h"
 

@@ -9,7 +9,7 @@
 #include <errno.h>
 
 #include "sq.h"
-#include "config.h"
+#include "pharovmConfig.h"
 
 #include "sqPlatformSpecific.h"
 #include "interpreter.h"
