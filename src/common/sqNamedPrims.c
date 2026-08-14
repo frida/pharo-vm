@@ -115,7 +115,8 @@ static void *
 findInternalFunctionIn(char *functionName, char *pluginName,  sqInt fnameLength, sqInt *accessorDepthPtr)
 {
   char *function, *plugin;
-  sqInt listIndex, index;
+  StaticPlugin *staticPlugin;
+  sqInt index;
   sqExport *exports;
 
   logTrace("Looking (internally) for %s in %s ... ", functionName, (pluginName ? pluginName : "<intrinsic>"));
@@ -123,9 +124,8 @@ findInternalFunctionIn(char *functionName, char *pluginName,  sqInt fnameLength,
   /* canonicalize functionName and pluginName to be NULL if not specified */
   if(functionName && !functionName[0]) functionName = NULL;
   if(pluginName && !pluginName[0]) pluginName = NULL;
-  for(listIndex=0;; listIndex++) {
-    exports = pluginExports[listIndex];
-    if(!exports) break;
+  for(staticPlugin = firstStaticPlugin(); staticPlugin; staticPlugin = staticPlugin->next) {
+    exports = (sqExport *) staticPlugin->exports;
     for(index=0;; index++) {
       plugin = exports[index].pluginName;
       function = exports[index].primitiveName;
@@ -544,14 +544,14 @@ ioUnloadModuleOfLength(sqInt moduleNameIndex, sqInt moduleNameLength)
 char *
 ioListBuiltinModule(sqInt moduleIndex)
 {
-  sqInt index, listIndex;
+  StaticPlugin *staticPlugin;
+  sqInt index;
   char *function;
   char *plugin;
   sqExport *exports;
 
-  for(listIndex=0;; listIndex++) {
-    exports = pluginExports[listIndex];
-    if(!exports) break;
+  for(staticPlugin = firstStaticPlugin(); staticPlugin; staticPlugin = staticPlugin->next) {
+    exports = (sqExport *) staticPlugin->exports;
     for(index=0;; index++) {
       plugin = exports[index].pluginName;
       function = exports[index].primitiveName;

@@ -1,0 +1,4 @@
+#include "pharovm/pharo.h"
+#include "pharovm/staticPlugins.h"
+
+STATIC_PLUGIN(@PLUGIN_NAME@)

@@ -433,6 +433,7 @@ list(APPEND SUPPORT_SOURCES
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common/sqHeapMap.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common/sqVirtualMachine.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common/sqNamedPrims.c
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/common/staticPlugins.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common/sqExternalSemaphores.c
     ${CMAKE_CURRENT_SOURCE_DIR}/src/common/sqTicker.c
 )

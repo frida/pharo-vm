@@ -16,6 +16,6 @@ typedef enum VMErrorCode_
     VM_ERROR_INVALID_PARAMETER_VALUE = -6
 } VMErrorCode;
 
-EXPORT(const char*) vm_error_code_to_string(VMErrorCode errorCode);
+VM_EXPORT const char* vm_error_code_to_string(VMErrorCode errorCode);
 
 #endif //PHAROVM_ERROR_CODES_H
