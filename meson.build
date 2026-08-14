@@ -231,6 +231,14 @@ ffi_sources = files(
   'src/ffi/worker/workerTask.c',
 )
 
+ffi_exports = custom_target('ffi-exports',
+  input: ffi_sources,
+  output: 'ffiExports.c',
+  command: [python, files('tools/generate-ffi-exports.py'), '@OUTPUT@', '@INPUT@'],
+)
+
+ffi_sources += ffi_exports
+
 platform_sources = files('src/unix/aio.c', 'src/unix/debugUnix.c',
                          'src/unix/memoryUnix.c', 'src/unix/fileDialogUnix.c')
 if is_windows
