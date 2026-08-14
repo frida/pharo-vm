@@ -18,16 +18,16 @@ typedef struct VMFileDialog_
 /**
  * Starts a modal open file dialog.
  */
-EXPORT(VMErrorCode) vm_file_dialog_run_modal_open(VMFileDialog *dialog);
+VM_EXPORT VMErrorCode vm_file_dialog_run_modal_open(VMFileDialog *dialog);
 
 /**
  * Destroys a file dialog.
  */
-EXPORT(VMErrorCode) vm_file_dialog_destroy(VMFileDialog *dialog);
+VM_EXPORT VMErrorCode vm_file_dialog_destroy(VMFileDialog *dialog);
 
 /**
  * This methods tells on whether the file dialog is actually a dialog, or a no operation passthrough.
  */
-EXPORT(bool) vm_file_dialog_is_nop(void);
+VM_EXPORT bool vm_file_dialog_is_nop(void);
 
 #endif //PHAROVM_FILE_DIALOG_H

@@ -73,32 +73,32 @@ typedef struct VMParameters_
  * Parse an argument vector into a VM parameter holding structure.
  * \param parsedParameters the resulting parsed parameters.
  */
-EXPORT(VMErrorCode) vm_parameters_parse(int argc, const char** argv, VMParameters *parsedParameters);
+VM_EXPORT VMErrorCode vm_parameters_parse(int argc, const char** argv, VMParameters *parsedParameters);
 
 /**
  * This ensures that the interactive parameter is passed to the image when required.
  */
-EXPORT(VMErrorCode) vm_parameters_ensure_interactive_image_parameter(VMParameters* parameters);
+VM_EXPORT VMErrorCode vm_parameters_ensure_interactive_image_parameter(VMParameters* parameters);
 
 /**
  * Destroy an allocated instance \ref VMParameters.
  */
-EXPORT(VMErrorCode) vm_parameters_destroy(VMParameters *parameters);
+VM_EXPORT VMErrorCode vm_parameters_destroy(VMParameters *parameters);
 
 /**
  * Initialize the values of an instance of VMParameters
  */
 
-EXPORT(VMErrorCode) vm_parameters_init(VMParameters *parameters);
+VM_EXPORT VMErrorCode vm_parameters_init(VMParameters *parameters);
 
 /**
  * Prints the command line parameter usage string to a file.
  */
-EXPORT(void) vm_printUsageTo(FILE *output);
+VM_EXPORT void vm_printUsageTo(FILE *output);
 
 #ifdef __APPLE__
 
-EXPORT(void) fillParametersFromPList(VMParameters* parameters);
+VM_EXPORT void fillParametersFromPList(VMParameters* parameters);
 
 #endif
 

@@ -334,6 +334,6 @@ extern const char *interpreterVersion;
 
 void warning(char* msg);
 
-EXPORT(int) ioGetCurrentWorkingDirectorymaxLength(char * aCString, size_t maxLength);
+VM_EXPORT int ioGetCurrentWorkingDirectorymaxLength(char * aCString, size_t maxLength);
 
 #endif /* _SQ_H */

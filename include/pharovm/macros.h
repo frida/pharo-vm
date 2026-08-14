@@ -39,8 +39,8 @@
  */
 #include "exportDefinition.h"
 
-#define PrimitiveWithDepth(functionName, N) EXPORT(signed) char functionName ##AccessorDepth = N; \
-	EXPORT(void) functionName (void)
+#define PrimitiveWithDepth(functionName, N) VM_EXPORT signed char functionName ##AccessorDepth = N; \
+	VM_EXPORT void functionName (void)
 
 #define Primitive(functionName) PrimitiveWithDepth(functionName, 0)
 
