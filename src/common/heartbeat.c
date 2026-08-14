@@ -34,6 +34,9 @@
 #include "aio.h"
 
 #include "pharovm/debug.h"
+#ifdef _WIN32
+#   include <intrin.h>
+#endif
 
 #define SecondsFrom1901To1970      2177452800LL
 #define MicrosecondsFrom1901To1970 2177452800000000LL
@@ -241,6 +244,10 @@ ioHighResClock(void)
 	/* On RISC-V, the time control status register is read through the rdtime instruction */
 	/* If the performance counter needs to be used, use rdcycle instead */
 	__asm__ __volatile__("rdtime %0" : "=r"(value));
+#elif defined(_WIN32) && defined(_M_ARM64)
+	/* The counter-timer is what an ARM machine keeps instead of the cycle count
+	 * an x86 lets a program read. */
+	value = _ReadStatusReg(ARM64_CNTVCT);
 #elif defined(_WIN32)
 	value = __rdtsc();
 #else

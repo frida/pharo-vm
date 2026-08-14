@@ -1,5 +1,8 @@
 #include <sys/stat.h>
 #include "pharovm/pharo.h"
+#ifdef _MSC_VER
+#   include "pharovm/win/pthreadCompat.h"
+#endif
 #include "pharovm/pharoClient.h"
 #include "pharovm/fileDialog.h"
 #include "pharovm/pathUtilities.h"
