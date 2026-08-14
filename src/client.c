@@ -227,7 +227,7 @@ loadPharoImage(char* fileName)
     char* fullImageName = alloca(FILENAME_MAX);
 	fullImageName = getFullPath(fileName, fullImageName, FILENAME_MAX);
 
-    setImageName(fullImageName);
+    setImageName(fullImageName != NULL ? fullImageName : fileName);
 
     return 1;
 }
