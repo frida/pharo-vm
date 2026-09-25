@@ -13,6 +13,7 @@ import zipfile
 HOST = "https://build.frida.re/pharo-vm"
 VM_VERSION = "PharoVM-10.3.2-b8793dd2"
 WINDOWS_ARM64_VM_VERSION = "PharoVM-10.0.9-de76067"
+MACHINE_NAMES = {"AMD64": "x86_64"}
 IMAGE = "5212f07abb54"
 
 PHAROS_IMAGE = "https://files.pharo.org/image/130/Pharo13.0-SNAPSHOT.build.732.sha.e84a2d15c7.arch.64bit.zip"
@@ -53,7 +54,8 @@ def generate(flavour, output, cache):
 
 
 def fetch_vm(cache):
-    machine = "%s-%s" % (platform.system(), platform.machine())
+    machine = "%s-%s" % (platform.system(),
+                         MACHINE_NAMES.get(platform.machine(), platform.machine()))
     directory = cache / "vm"
     binary = directory / "pharo"
     archive = "%s-%s-bin.zip" % (VM_VERSION, machine)
