@@ -70,7 +70,6 @@ def fetch_vm(cache):
 
     if not binary.exists():
         unzip(fetch("%s/%s" % (HOST, archive)), directory)
-        binary.chmod(binary.stat().st_mode | stat.S_IXUSR)
 
     return str(binary)
 
@@ -116,7 +115,12 @@ def fetch(url):
 
 def unzip(archive, destination):
     destination.mkdir(parents=True, exist_ok=True)
-    zipfile.ZipFile(archive).extractall(destination)
+    with zipfile.ZipFile(archive) as contents:
+        for entry in contents.infolist():
+            extracted = pathlib.Path(contents.extract(entry, destination))
+            unix_mode = entry.external_attr >> 16
+            if unix_mode != 0:
+                extracted.chmod(stat.S_IMODE(unix_mode))
 
 
 def run(*command):
