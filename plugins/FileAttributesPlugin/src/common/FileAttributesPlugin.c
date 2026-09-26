@@ -9,7 +9,7 @@ static void suppress_warning_buildInfo() { (void)__buildInfo; }
 
 
 
-#include "pharovmConfig.h"
+#include "config.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

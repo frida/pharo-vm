@@ -21,9 +21,9 @@ typedef struct VMParameterVector_
 	const char ** parameters;
 } VMParameterVector;
 
-VM_EXPORT VMErrorCode vm_parameter_vector_destroy(VMParameterVector *vector);
-VM_EXPORT VMErrorCode vm_parameter_vector_insert_from(VMParameterVector *vector, uint32_t count, const char **arguments);
-VM_EXPORT bool vm_parameter_vector_has_element(VMParameterVector *vector, const char *parameter);
+EXPORT(VMErrorCode) vm_parameter_vector_destroy(VMParameterVector *vector);
+EXPORT(VMErrorCode) vm_parameter_vector_insert_from(VMParameterVector *vector, uint32_t count, const char **arguments);
+EXPORT(bool) vm_parameter_vector_has_element(VMParameterVector *vector, const char *parameter);
 
 #ifdef __cplusplus
 }

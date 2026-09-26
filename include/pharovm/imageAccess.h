@@ -24,8 +24,8 @@ typedef struct {
 
 typedef _FileAccessHandler FileAccessHandler;
 
-VM_EXPORT FileAccessHandler* currentFileAccessHandler();
-VM_EXPORT void setFileAccessHandler(FileAccessHandler* aFileAccessHandler);
+EXPORT(FileAccessHandler*) currentFileAccessHandler();
+EXPORT(void) setFileAccessHandler(FileAccessHandler* aFileAccessHandler);
 
 #define sqImageFileClose(f) 				currentFileAccessHandler()->imageFileClose(f)
 #define sqImageFileOpen(fileName, mode)		currentFileAccessHandler()->imageFileOpen(fileName, mode)

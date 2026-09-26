@@ -13,15 +13,15 @@
 #define LOG_DEBUG		4
 #define LOG_TRACE		5
 
-VM_EXPORT void logLevel(int level);
-VM_EXPORT int getLogLevel();
+EXPORT(void) logLevel(int level);
+EXPORT(int) getLogLevel();
 
-VM_EXPORT void logMessage(int level, const char* fileName, const char* functionName, int line, ...);
-VM_EXPORT void logAssert(const char* fileName, const char* functionName, int line, char* msg);
+EXPORT(void) logMessage(int level, const char* fileName, const char* functionName, int line, ...);
+EXPORT(void) logAssert(const char* fileName, const char* functionName, int line, char* msg);
 
-VM_EXPORT void registerCurrentThreadToHandleExceptions();
-VM_EXPORT void installErrorHandlers();
-VM_EXPORT int isLogDebug();
+EXPORT(void) registerCurrentThreadToHandleExceptions();
+EXPORT(void) installErrorHandlers();
+EXPORT(int) isLogDebug();
 
 //This variable is set externally by CMAKE
 #ifndef SOURCE_PATH_SIZE
@@ -43,7 +43,7 @@ VM_EXPORT int isLogDebug();
 #define logWarnFromErrno(msg) 	logMessageFromErrno(LOG_WARN, msg, __FILENAME__, __FUNCTION__, __LINE__);
 #define logDebugFromErrno(msg) 	logMessageFromErrno(LOG_DEBUG, msg, __FILENAME__, __FUNCTION__, __LINE__);
 
-VM_EXPORT void logMessageFromErrno(int level, const char* msg, const char* fileName, const char* functionName, int line);
+EXPORT(void) logMessageFromErrno(int level, const char* msg, const char* fileName, const char* functionName, int line);
 
 void error(char* aMessage);
 
@@ -55,20 +55,20 @@ void vm_setVMOutputStream(FILE * stream);
 
 // Internal implementations of fprintf and vfprintf, so the different OS can reimplement if needed
 
-VM_EXPORT int fprintf_impl(FILE * stream, const char * format, ... );
-VM_EXPORT int vfprintf_impl(FILE * stream, const char * format, va_list arg);
+EXPORT(int) fprintf_impl(FILE * stream, const char * format, ... );
+EXPORT(int) vfprintf_impl(FILE * stream, const char * format, va_list arg);
 
-VM_EXPORT void printStatusAfterError();
+EXPORT(void) printStatusAfterError();
 
 #ifdef _WIN32
 
-VM_EXPORT char* formatMessageFromErrorCode(int errorCode);
-VM_EXPORT void logErrorFromGetLastError(char* msg);
+EXPORT(char*) formatMessageFromErrorCode(int errorCode);
+EXPORT(void) logErrorFromGetLastError(char* msg);
 
-VM_EXPORT char* getErrorLogNameInto(char* nameBuffer, int maxSize);
-VM_EXPORT FILE* getErrorLogFile();
+EXPORT(char*) getErrorLogNameInto(char* nameBuffer, int maxSize);
+EXPORT(FILE*) getErrorLogFile();
 
-VM_EXPORT void openDebugWindow(void* hwnd);
-VM_EXPORT void notifyDebugWindow();
+EXPORT(void) openDebugWindow(void* hwnd);
+EXPORT(void) notifyDebugWindow();
 
 #endif

@@ -1,8 +1,5 @@
 #include <sys/stat.h>
 #include "pharovm/pharo.h"
-#ifdef _MSC_VER
-#   include "pharovm/win/pthreadCompat.h"
-#endif
 #include "pharovm/pharoClient.h"
 #include "pharovm/fileDialog.h"
 #include "pharovm/pathUtilities.h"
@@ -227,7 +224,7 @@ loadPharoImage(char* fileName)
     char* fullImageName = alloca(FILENAME_MAX);
 	fullImageName = getFullPath(fileName, fullImageName, FILENAME_MAX);
 
-    setImageName(fullImageName != NULL ? fullImageName : fileName);
+    setImageName(fullImageName);
 
     return 1;
 }

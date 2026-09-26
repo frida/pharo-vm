@@ -461,7 +461,7 @@ static int stackPageHeadroom;
  * be lazy.  The reportheadroom switch can be used to check empirically that
  * there is sufficient headroom.
  */
-EXPORT(int)
+int
 osCogStackPageHeadroom()
 {
 	if (!stackPageHeadroom){

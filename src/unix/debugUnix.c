@@ -259,12 +259,12 @@ void * printRegisterState(ucontext_t *uap, FILE* output)
             regs->__x[26],
             regs->__x[27],
             regs->__x[28],
-            __darwin_arm_thread_state64_get_fp(*regs),
-            __darwin_arm_thread_state64_get_lr(*regs),
-            __darwin_arm_thread_state64_get_sp(*regs),
-            __darwin_arm_thread_state64_get_pc(*regs),
+            regs->__fp,
+            regs->__lr,
+            regs->__sp,
+            regs->__pc,
             (__uint64_t)regs->__cpsr);
-    return (void*)__darwin_arm_thread_state64_get_pc(*regs);
+    return (void*)(regs->__pc); 
 #elif __FreeBSD__ && __i386__
 	struct mcontext *regs = &uap->uc_mcontext;
 	fprintf_impl(output,
@@ -491,12 +491,8 @@ void reportStackState(const char *msg, char *date, int printAll, ucontext_t *uap
 			void *fp = (void *)(uap ? uap->uc_mcontext.arm_fp: 0);
 			void *sp = (void *)(uap ? uap->uc_mcontext.arm_sp: 0);
 # elif defined(__aarch64__) && __APPLE__
-			void *fp = (void *)(uap
-					? __darwin_arm_thread_state64_get_fp(uap->uc_mcontext->__ss)
-					: 0);
-			void *sp = (void *)(uap
-					? __darwin_arm_thread_state64_get_sp(uap->uc_mcontext->__ss)
-					: 0);
+			void *fp = (void *)(uap ? uap->uc_mcontext->__ss.__fp: 0); 
+			void *sp = (void *)(uap ? uap->uc_mcontext->__ss.__sp: 0);
 # elif defined(__aarch64__) && __FreeBSD__
 			void *fp = (void *)(uap ? uap->uc_mcontext.mc_gpregs.gp_x[29]: 0); // x29 is the FramePointer
 			void *sp = (void *)(uap ? uap->uc_mcontext.mc_gpregs.gp_sp: 0);

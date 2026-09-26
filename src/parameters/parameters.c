@@ -3,12 +3,7 @@
 #include "pharovm/debug.h"
 #include "pharovm/pathUtilities.h"
 #include <assert.h>
-#ifdef _WIN32
-#   include <direct.h>
-#   define chdir _chdir
-#else
-#   include <unistd.h>
-#endif
+#include <unistd.h>
 
 typedef VMErrorCode (*vm_parameter_process_function)(const char *argument, VMParameters* params);
 

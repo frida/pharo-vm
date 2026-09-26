@@ -7,7 +7,7 @@ static char __buildInfo[] = "SocketPlugin VMMaker.oscog-eem.2495 uuid: fcbf4c90-
 
 
 
-#include "pharovmConfig.h"
+#include "config.h"
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>

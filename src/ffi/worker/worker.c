@@ -1,14 +1,9 @@
 #include "pThreadedFFI.h"
 #include "worker.h"
-#include "pharovm/exportDefinition.h"
 
 #include <stdio.h>
 #include <ffi.h>
-#ifdef _MSC_VER
-#   include "pharovm/win/pthreadCompat.h"
-#else
-#   include <pthread.h>
-#endif
+#include <pthread.h>
 #include <errno.h>
 #include <stdlib.h>
 #include <string.h>
@@ -87,7 +82,7 @@ void worker_callback_prepare(Runner* worker, CallbackInvocation *invocation){
 static void executeWorkerTask(Worker *worker, WorkerTask *task);
 
 
-EXPORT(Worker *) worker_newSpawning(int spawn) {
+Worker *worker_newSpawning(int spawn) {
     Worker *worker = (Worker *)malloc(sizeof(Worker));
     
     worker->hasToQuit = false;

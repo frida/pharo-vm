@@ -14,9 +14,7 @@
 #undef setjmp
 #undef sigsetjmp
 #undef siglongjmp
-// clang-cl builds against the same CRT, so it needs the same wrapper. On ARM64
-// it has no choice: the setjmp it would emit is one the CRT does not carry.
-#if _MSC_VER && (!__clang__ || defined(_M_ARM64))
+#if _MSC_VER && !__clang__
 // MSVC versions of setjmp and longjmp use the exception mechanism and do unwind the stack
 // However, unwinding the stack does not work in the precense of native code generated dynamically by the JIT
 // Use instead two definitions of setjmp and longjmp defined by ourselves for the current platform

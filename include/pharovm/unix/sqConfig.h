@@ -2,7 +2,7 @@
 
 /* This file has been superseded by autoconf for Unix variants. */
 
-#include "pharovmConfig.h"
+#include "config.h"
 
 #ifndef UNIX
 # define UNIX
